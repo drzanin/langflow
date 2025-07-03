@@ -1,6 +1,10 @@
+version: '3.8'
+
 services:
   langflow:
-    build: .
+    build:
+      context: .               # Use "." se o Dockerfile estiver na raiz
+      dockerfile: Dockerfile   # Ou "docker_exemple/Dockerfile" se mantiver lá
     ports:
       - "7860:7860"
     depends_on:
