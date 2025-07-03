@@ -4,7 +4,7 @@ services:
   langflow:
     build:
       context: .               # Use "." se o Dockerfile estiver na raiz
-      dockerfile: docker_exemple/Dockerfile   # Ou "docker_exemple/Dockerfile" se mantiver lá
+      dockerfile: docker_example/Dockerfile   # Ou "docker_exemple/Dockerfile" se mantiver lá
     ports:
       - "7860:7860"
     depends_on:
