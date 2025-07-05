@@ -3,8 +3,8 @@ version: '3.8'
 services:
   langflow:
     build:
-      context: .               # Use "." se o Dockerfile estiver na raiz
-      dockerfile: docker_example/Dockerfile   # Ou "docker_exemple/Dockerfile" se mantiver lá
+      context: .                              # Raiz onde está seu Dockerfile
+      dockerfile: docker_example/Dockerfile  
     ports:
       - "7860:7860"
     depends_on:
@@ -12,8 +12,11 @@ services:
     environment:
       - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
       - LANGFLOW_CONFIG_DIR=app/langflow
+      - GOOGLE_APPLICATION_CREDENTIALS=/keys/chatrag-3bf34-61db4767441b.json
+
     volumes:
       - langflow-data:/app/langflow
+      - ./root               
 
   postgres:
     image: postgres:16
