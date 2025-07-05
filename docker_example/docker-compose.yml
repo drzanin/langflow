@@ -16,7 +16,7 @@ services:
 
     volumes:
       - langflow-data:/app/langflow
-      - ./root               
+      - /root/chatrag-3bf34-61db4767441b.json:/keys/chatrag-3bf34-61db4767441b.json
 
   postgres:
     image: postgres:16
