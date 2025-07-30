@@ -7,7 +7,6 @@ services:
       dockerfile: docker_example/Dockerfile
     ports:
       - "7860:7860"
-      - "80:7860"
     depends_on:
       - postgres
     environment:
