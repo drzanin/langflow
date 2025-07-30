@@ -3,20 +3,22 @@ version: '3.8'
 services:
   langflow:
     build:
-      context: .                              # Raiz onde está seu Dockerfile
-      dockerfile: docker_example/Dockerfile  
+      context: .
+      dockerfile: docker_example/Dockerfile
     ports:
       - "7860:7860"
+      - "80:7860"
     depends_on:
       - postgres
     environment:
       - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
       - LANGFLOW_CONFIG_DIR=app/langflow
       - GOOGLE_APPLICATION_CREDENTIALS=/keys/chatrag-3bf34-61db4767441b.json
-
     volumes:
       - langflow-data:/app/langflow
       - /root/chatrag-3bf34-61db4767441b.json:/keys/chatrag-3bf34-61db4767441b.json
+    labels:
+      - "coolify.shared.network=frontend"
 
   postgres:
     image: postgres:16
