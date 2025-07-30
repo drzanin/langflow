@@ -13,11 +13,12 @@ services:
       - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
       - LANGFLOW_CONFIG_DIR=app/langflow
       - GOOGLE_APPLICATION_CREDENTIALS=/keys/chatrag-3bf34-61db4767441b.json
-
     volumes:
       - langflow-data:/app/langflow
       - /root/chatrag-3bf34-61db4767441b.json:/keys/chatrag-3bf34-61db4767441b.json
-
+    labels:
+      - "coolify.shared.network=frontend"
+      
   postgres:
     image: postgres:16
     environment:
