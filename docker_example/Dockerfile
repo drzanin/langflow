@@ -4,7 +4,6 @@ FROM langflow-ai/langflow:latest
 # Defina diretório de trabalho
 WORKDIR /app
 
-# Instale dependências adicionais que você adicionou no pyproject.toml
-RUN uv pip install reportlab
+COPY pyproject.toml ./app/pyproject.toml
 
 CMD ["python", "-m", "langflow", "run", "--host", "0.0.0.0", "--port", "7860"]
