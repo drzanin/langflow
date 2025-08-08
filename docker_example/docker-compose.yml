@@ -4,7 +4,7 @@ services:
   langflow:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker_example/Dockerfile
     restart: always
     depends_on:
       - postgres
