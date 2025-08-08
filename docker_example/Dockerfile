@@ -1,5 +1,5 @@
 # Use a imagem oficial do Langflow como base
-FROM langflowai/langflow:latest
+FROM ghcr.io/langflow-ai/langflow:latest
 
 # Defina diretório de trabalho
 WORKDIR /app
