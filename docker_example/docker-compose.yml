@@ -8,7 +8,8 @@ services:
     volumes:
       - langflow-data:/app/langflow
     restart: unless-stopped
-    read_only: true
+    ports:
+      - "7860:7860" # Necessário para Coolify mapear
     tmpfs:
       - /tmp:rw,noexec,nosuid
 
